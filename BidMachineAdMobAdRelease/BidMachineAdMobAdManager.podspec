@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "BidMachineAdMobAdManager"
-  spec.version      = "0.0.9"
+  spec.version      = "0.1.0"
   spec.summary      = "BidMachine IOS SDK for GAM mediation"
   spec.description  = <<-DESC
   Supported ad formats: Banner, Interstitial, Rewarded Video.\n
@@ -22,10 +22,18 @@ limitations under the License.
   spec.platform     = :ios, '10.0'
   spec.source       = { :http => "https://appodeal-ios.s3-us-west-1.amazonaws.com/external-sdks/BidMachineAdMobAdManager/#{spec.version}/BidMachineAdMobAdManager.framework.zip" }
 
-  spec.pod_target_xcconfig      = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64 arm64e armv7 armv7s', 'EXCLUDED_ARCHS[sdk=iphoneos*]' => 'i386 x86_64' }
-  spec.user_target_xcconfig     = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64 arm64e armv7 armv7s', 'EXCLUDED_ARCHS[sdk=iphoneos*]' => 'i386 x86_64' }
+  spec.pod_target_xcconfig = {
+    "VALID_ARCHS": "arm64 armv7 armv7s x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7 armv7s",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  }
+  spec.user_target_xcconfig = {
+    "VALID_ARCHS": "arm64 armv7 armv7s x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7 armv7s",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  }
   
   spec.vendored_frameworks = 'BidMachineAdMobAdManager.framework'
-  spec.dependency 'BidMachine', '~> 1.7.0.0'
-  spec.dependency 'Google-Mobile-Ads-SDK', '~> 7.69.0'
+  spec.dependency 'BidMachine', '1.7.0.0'
+  spec.dependency 'Google-Mobile-Ads-SDK', '8.1.0'
 end

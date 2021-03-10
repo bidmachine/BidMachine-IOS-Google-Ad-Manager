@@ -138,10 +138,6 @@
     [request notifyMediationWin];
     self.customParams = request.info.customParams;
     
-    NSMutableDictionary *params = request.info.customParams.mutableCopy;
-    params[@"bm_pf"] = @"1000.0";
-    self.customParams = params;
-    
     GAMRequest *adMobRequest = [GAMRequest request];
     adMobRequest.customTargeting = self.customParams;
     
