@@ -12,8 +12,8 @@ export SHOULD_UPDATE_PODS="NO"
 export SHOULD_COMPRESS_RESULTS="YES"
 export WITHOUT_ADAPTERS="NO"
 export SHOULD_UPLOAD_TO_S3="YES"
-export RELEASE_DIR=$PROJECT_DIR/BidMachineAdMobRelease/Release
-export TEMP_DIR=$PROJECT_DIR/BidMachineAdMobRelease/build
+export RELEASE_DIR=$PROJECT_DIR/BidMachineAdMobAdRelease/Release
+export TEMP_DIR=$PROJECT_DIR/BidMachineAdMobAdRelease/build
 
 export COMPONENTS=(
     "BidMachineAdMobAdManager.framework/BidMachineAdMobAdManager"
@@ -38,7 +38,7 @@ function build_mangled_binary {
     # OTHER_CFLAGS                                                  - enables bitcode
     # IPHONEOS_DEPLOYMENT_TARGET                                    - set min support version
     # MACH_O_TYPE                                                   - only static frameworks
-    xcodebuild  -workspace "$PROJECT_DIR/BidMachineIntegrationSample.xcworkspace" \
+    xcodebuild  -workspace "$PROJECT_DIR/BidMachineAdMobAdManager.xcworkspace" \
                 -scheme "$scheme_id" \
                 -sdk "$sdk_id" \
                 -configuration Release \

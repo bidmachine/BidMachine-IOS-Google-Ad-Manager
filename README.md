@@ -13,7 +13,17 @@
 
 ##### Add following lines into your project Podfile
 
+> **_NOTE:_** Spec contains a private pod for the BDM sdk. Add these lines to use the library
+
 ```ruby
+source 'https://github.com/appodeal/CocoaPods.git'
+source 'https://github.com/CocoaPods/Specs.git'
+```
+
+```ruby
+source 'https://github.com/appodeal/CocoaPods.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
 target 'Target' do
    project 'Project.xcodeproj'
   pod 'BidMachineAdMobAdManager', '~> 0.1.0'
